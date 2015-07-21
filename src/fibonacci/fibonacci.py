@@ -24,3 +24,56 @@ def fibonacci_iter(n):
             arr.append(arr[i-1] + arr[i-2])
     
     return arr[n]
+
+# test
+def test():
+    # f(0) = 0
+    value = fibonacci(0)
+    if value != 0:
+        print("f(0) = 0. but fibonacci(0) = " + str(value))
+        return False
+    
+    value = fibonacci_memo(0, [-1])
+    if value != 0:
+        print("f(0) = 0. but fibonacci_memo(0) = " + str(value))
+        return False
+    
+    value = fibonacci_iter(0)
+    if value != 0:
+        print("f(0) = 0. but fibonacci_iter(0) = " + str(value))
+        return False
+    
+    # f(5) = 5
+    value = fibonacci(5)
+    if value != 5:
+        print("f(5) = 5. but fibonacci(5) = " + str(value))
+        return False
+    
+    value = fibonacci_memo(5, [-1, -1, -1, -1, -1, -1])
+    if value != 5:
+        print("f(5) = 5. but fibonacci_memo(5) = " + str(value))
+        return False
+    
+    value = fibonacci_iter(5)
+    if value != 5:
+        print("f(5) = 5. but fibonacci_iter(5) = " + str(value))
+        return False
+    
+    # f(10) = 55
+    value = fibonacci(10)
+    if value != 55:
+        print("f(10) = 55. but fibonacci(10) = " + str(value))
+        return False
+    
+    value = fibonacci_memo(10, [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1])
+    if value != 55:
+        print("f(10) = 55. but fibonacci_memo(55) = " + str(value))
+        return False
+    
+    value = fibonacci_iter(10)
+    if value != 55:
+        print("f(10) = 55. but fibonacci_iter(10) = " + str(value))
+        return False
+    
+    print("ok.")
+    return True
